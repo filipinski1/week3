@@ -6,8 +6,11 @@ namespace week3
     {
         static void Main(string[] args)
         {
-            do
+            
+            while (true)
             {
+
+
 
                 Console.WriteLine("Enter a comma seperated list of numbers that you want to sort in ascending order!");
                 string input = Console.ReadLine();
@@ -45,16 +48,27 @@ namespace week3
                     integers.Sort();
                     doubles.Sort();
 
-                   
+
                     //i had two of this code for sortedDoubles and sortedIntegers,but it was showing me two outputs,
                     //so i decided to delete sortedIntegers, and now its showing me only one ouput
                     string sortedDoubles = string.Join(",", doubles);
                     Console.WriteLine("Sorted array in ascending order:" + sortedDoubles);
 
                 }
-                Console.WriteLine("Would you like to continue (Y = yes, N = no)");
-            } while (Console.ReadLine().ToUpper() == "Y");
-            Console.WriteLine("Bye!");
+                // for user be able to enter one of the two options either no either yes
+                Console.WriteLine("Do you want to check another string of numbers ? (y/n)");
+                string choice = Console.ReadLine().ToLower();
+                while (choice != "y" && choice != "n")
+                {
+                    Console.WriteLine("Invalid response. Please enter 'y' or 'n'");
+                    choice = Console.ReadLine().ToLower();
+                }
+                if (choice != "y")
+                {
+                    break;
+                }
+            }
+                Console.WriteLine("Bye!");
             Console.ReadKey();
 
         }
